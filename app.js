@@ -1,10 +1,11 @@
 const game = {
     title: 'Guess the Number!',
-    biggestNum: null,
-    smallestNum: null,
+    biggestNum: 100,
+    smallestNum: 1,
     secretNum: null,
     prevGuesses: [],
-
+    getGuess: []
+    
     play: function() {
       this.secretNum = Math.floor(Math.random() * 
         (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
@@ -15,14 +16,41 @@ const game = {
       this.prevGuesses.push(this.guess)
       this.render()
     }
-    while {
-      this.guess= this.secretNum
-      return 
-    }
+
+    // remember to add parseInt => ${this.secretNum} and ${this.prevGuesses} 
+
+    } while (
+      this.guess != this.secretNum
+    )
+    return 
+
+    // console.log(1 != 1); inequality checks whether two operands are NOT equal
+
+  getGuess: function() {
+    do {
+      this.guess = parseInt (window.prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}:`, ""));
+
+    } while (
+      this.guess
+      this.guess > this.biggestNum ||
+      this.guess < this.smallestNum
+    )
+  }
+
+  render: function() {
+  if (this.guess === this.secretNum) {
+    window.alert ('Yay! You guessed the number in ${this.prev.Guesses.length} !');
+  } else if ( this.guess > this.biggestNum) {
+    window.alert ('Too high! ');
+  } else {
+    window.alert ('Too low ');
+  }
+},
+}
 
 
 
-
+// \nPrevious guesses: ${this.prevGuesses.join(", ")}`);
 
     // ## Tasks
 
