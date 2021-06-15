@@ -16,19 +16,26 @@ const game = {
       this.prevGuesses.push(this.guess)
       this.render()
     }
-
-    // remember to add parseInt => ${this.secretNum} and ${this.prevGuesses} 
+    // what I'm having the game do - 1. getGuess, 2. render, added in prevGuesses
 
     } while (
       this.guess != this.secretNum
     )
     return 
+    // player needs to guess the secretNum
 
-    // console.log(1 != 1); inequality checks whether two operands are NOT equal
+    // REMINDER: MDN - creates a loop that executes a specified 
+    // statement until the test condition evaluates to false. 
+    // 'this' refers to the object its living in
+  
 
   getGuess: function() {
     do {
       this.guess = parseInt (window.prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}:`, ""));
+
+      // Player is prompted to enter a guess (getGuess)
+
+      // parseInt - parses a string argument and returns an integer of the specified number
 
     } while (
       this.guess
@@ -38,19 +45,19 @@ const game = {
   }
 
   render: function() {
-  if (this.guess === this.secretNum) {
-    window.alert ('Yay! You guessed the number in ${this.prev.Guesses.length} !');
-  } else if ( this.guess > this.biggestNum) {
-    window.alert ('Too high! ');
-  } else {
-    window.alert ('Too low ');
-  }
-},
+    if (this.guess === this.secretNum) {
+      window.alert (`Yay! You guessed the number in ${this.prev.Guesses.length} !`);
+    } else if ( this.guess > this.biggestNum) {
+      window.alert (`Too high! ${this.prevGuesses.join('')`});
+    } else {
+     window.alert (`Too low!  ${this.prevGuesses.join('')'});
+    }
+  },
 }
 
 
+// window.alert(message);
 
-// \nPrevious guesses: ${this.prevGuesses.join(", ")}`);
 
     // ## Tasks
 
