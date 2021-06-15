@@ -16,7 +16,7 @@ const game = {
       this.prevGuesses.push(this.guess)
       this.render()
     }
-    // what I'm having the game do - 1. getGuess, 2. render, added in prevGuesses
+    // what I'm having the game do -> 1. getGuess, added in prevGuesses, 2. render, 
 
     } while (
       this.guess != this.secretNum
@@ -24,60 +24,41 @@ const game = {
     return 
     // player needs to guess the secretNum
 
-    // REMINDER: MDN - creates a loop that executes a specified 
+    // REMINDER: do...while - creates a loop that executes a specified 
     // statement until the test condition evaluates to false. 
     // 'this' refers to the object its living in
-  
+    // (!=) is inequality  => checks whether 2 operands are not equal
 
   getGuess: function() {
+
     do {
       this.guess = parseInt (window.prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}:`, ""));
 
       // Player is prompted to enter a guess (getGuess)
 
-      // parseInt - parses a string argument and returns an integer of the specified number
+      // parseInt - parses a string argument and returns an integer of the specified number (returns NaN)
 
     } while (
-      this.guess
+      this.guess  //NaN
       this.guess > this.biggestNum ||
       this.guess < this.smallestNum
     )
   }
 
-  render: function() {
+// this.guess isNaN
+
+  render: function(guess) {
     if (this.guess === this.secretNum) {
       window.alert (`Yay! You guessed the number in ${this.prev.Guesses.length} !`);
     } else if ( this.guess > this.biggestNum) {
-      window.alert (`Too high! ${this.prevGuesses.join('')`});
+      window.alert (`Too high! try again: ${this.prevGuesses.join('')`});
     } else {
-     window.alert (`Too low!  ${this.prevGuesses.join('')'});
+      window.alert (`Too low! try again: ${this.prevGuesses.join('')`});
     }
-  },
-}
+  };
+
+game.play();
 
 
-// window.alert(message);
 
-
-    // ## Tasks
-
-    // Completing the following tasks will result in a working *Guess the Number* game:
-    
-    // 1. Add a `prevGuesses` property to the `game` object initialized to an empty array.
-    // 2. Add a `getGuess` method to `game` that prompts the player to enter a guess with a message formatted as: *Enter a guess between [smallestNum] and [biggestNum]:*. Hint - use a template literal for the prompt message.
-    // 3. Ensure that the `getGuess` method returns a value that:
-    //     - Is a *number*, not a *string*.
-    //     - Is between `smallestNum` and `biggestNum`, inclusive.
-    //     - Hints:
-    //         - This is a great use case for a `while` loop.
-    //         - `parseInt` returns `NaN` if the string cannot be parsed into a number.
-    // 4. From within the `play` method, invoke the `getGuess` method from inside a loop, and add the new guess to the `prevGuesses` array.
-    //     - Hint: this is a great use for a while loop (or even a do...while loop!)
-    // 5. Add a `render` method to `game` that `play` will call after a guess has been made that alerts:
-    //     - If the secret has been guessed: `Congrats! You guessed the number in [number of prevGuesses]!`
-    //     - Otherwise: `Your guess is too [high|low] Previous guesses: x, x, x, x`
-    //     - Hints:
-    //         - `render` won’t be able to access any of `play`’s local variables, e.g., `guess`, so be sure pass `render` any arguments as needed (you may have not built your program to use any, that's ok if that's the case!)
-    //         - Template literals not only have interpolation, but they also honor whitespace - including line breaks!
-    //         - The list of previous guesses can be generated using the array `join` method.
-    // 6. The `play` method should end (`return`) when the guess matches `secretNum`.
+// what did i do???!! => practice game again
